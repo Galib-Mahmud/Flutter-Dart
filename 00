@@ -1,0 +1,401 @@
+
+
+
+what is flutter ?
+its a ui toolkit and framwork developed by google published in may 2017. it uses dart programming
+language which released on nov 14 2013.
+uses of Flutter :
+  cross platform, high performance, expensive and customize ui,hot reload,open source community 
+
+
+need dart sdk
+   unzip file then paste into c drive copy bin path and set it into environment variable user path 
+check it cmd and search dart -v
+
+
+
+need flutter sdk 
+     unzip file to c drive and set environveriable path and search cmd flutter doctor 
+
+
+1.(problem in open new flutter project sdk)
+ cmd 
+
+flutter create galib12
+
+
+2.Increase the maximum number of file handle
+
+Registry editors, H key local machine, system,current controll set, services
+web clint, parameters, file size limit in Bytes,4294967295
+
+
+or 
+
+cmd then git reset --hard
+
+C:\flutter\bin\cache\dart-sdk>git reset --hard
+
+
+
+
+
+
+
+01. Datatypes
+
+
+
+
+void main() {
+  print('Hello World');
+  // Data types
+  String name = 'Galib Mahmud';
+  print(name);
+  int age = 10;
+  print(age);
+  double height = 5.6;
+  print(height);
+  bool value = true;
+  print(value);
+  // List
+
+  List myList = [1, 2, 3, 4, 5];
+  print(myList);
+
+  // Map
+  Map<String, dynamic> myMap = {'name': 'Galib', 'age': '24'};
+  print(myMap);
+  //set
+  Set mySet = {1, 2, 3, 4, 5};
+  print(mySet);
+
+  //Rune
+  final nameTwo = 'Hello';
+  print(nameTwo.codeUnits);
+
+  // Runes (Unicode emoji)
+  Runes input = Runes('\u{1f49b}'); // 💛
+  print(String.fromCharCodes(input)); //
+}
+
+
+
+.............................................................
+.......................................................
+
+
+02.Dart Operators 
+ 
+
+Arithmetic Operator: + Add ,- Subtract,*multiply,/ Divide, % get the remainder
+~/trancating division Operator,++ increment , -- decrement 
+
+
+
+Equality an drelational operator 
+Type test Operator 
+Bitwise operator 
+Assignment operator 
+Logical Operator
+Conditional Operator
+Cascade notation Operator
+
+
+void main() {
+  int a = 10;
+  int b = 3;
+  var ans = a ~/ b;
+  print(ans);
+
+  //Type test
+  String name = 'Galib Mahmud';
+  var result = name is String;
+  print(result);
+
+  // Tarnary operator
+  String colour = 'white';
+  var result1 = colour == 'red' ? 'colour is red' : 'colour is not red';
+  print(result1);
+  String color = 'red';
+  String result2;
+  if (color == 'red') {
+    result2 = 'colour is red';
+  } else {
+    result2 = 'colour is not red';
+  }
+  print(result2);
+
+  // Null aware operator
+  int? a = null;
+  int b = 10;
+  var result3 = a ?? b; // if a is null, return b
+  print(result3);
+
+  // Spread operator
+  List<int> list1 = [1, 2, 3];
+  List<int> list2 = [4, 5, ...list1];
+  print(list2);
+
+  // Null aware spread operator
+  List<int>? list3;
+  List<int> list4 = [6, 7, ...?list3];
+  print(list4);
+}
+
+
+
+
+..........................................................................................
+..........................................................................................
+
+
+03.Conditional Statement 
+
+
+
+void main() {
+  String connection = 'waiting';
+  if (connection == 'connected') {
+    print("connected");
+  } else if (connection == 'waiting') {
+    print("waiting");
+  } else {
+    print("Not connected");
+  }
+}
+
+
+
+void main() {
+  String connection = 'waiting';
+  switch (connection) {
+    case 'waiting':
+      print('Waiting for connection');
+      break;
+    case 'connected':
+      print('Connected');
+      break;
+    case 'disconnected':
+      print('Disconnected');
+      break;
+    default:
+      print('Unknown connection status');
+  }
+  
+}
+
+
+
+........................................................................................
+........................................................................................
+
+
+04.String Concatination & interpolation
+
+
+
+void main() {
+  // String concatination or addition
+
+  String a = 'we';
+  String b = 'are';
+  String c = 'lerning';
+  String d = 'Dart';
+
+  //Concatination
+  print(a + b + c + d);
+
+  // Interpolation
+  print("$a$b$c$d);
+}
+
+
+....................................................................................
+...................................................................................
+
+
+05.Compile time error and run time error 
+
+
+
+void main() {
+  // String concatination or addition
+
+  String a = 'we';
+  String b = 'are';
+  String c = 'lerning';
+  String d = 'Dart';
+
+  //Concatination
+  print(a + b + c + d);
+
+  // Interpolation
+  print("$a$b$c$d) 
+  // syntex error or compile time error 
+
+  int a = 10;
+  int b= 0;
+  var result = a~/b;
+  print (result);
+// run time error 
+
+}
+
+
+..............................................................................
+.............................................................................
+
+
+06.Final and cons
+
+
+void main() {
+  // finial korle change korte parbo na
+  final int age = 50;
+  // age=30; eita se nibe na
+  print(age);
+
+  //const onno kono variable r valu assign korte parbe na
+
+  const double pi = 3.1416;
+  // declear korar por compile time a memmory te aloocate hobe
+  print(pi);
+}
+
+.............................................................................
+............................................................................
+
+
+07.List 
+
+
+
+void main() {
+  // finial korle change korte parbo na
+  final int age = 50;
+  // age=30; eita se nibe na
+  print(age);
+
+  //const onno kono variable r valu assign korte parbe na
+
+  const double pi = 3.1416;
+  // declear korar por compile time a memmory te aloocate hobe
+  print(pi);
+}
+
+
+.............................................................................
+...............................................................................
+
+
+08.Enumeration 
+
+
+import 'dart:vmservice_io';
+
+void main() {
+  final gender = Gender.Female;
+  switch (gender) {
+    case Gender.Male:
+      print("Gender is Male");
+      break;
+
+    case Gender.Female:
+      print("Gender is Female");
+      break;
+
+    case Gender.Unknown:
+      print("Gender is Female");
+      break;
+
+    default:
+      print("Nothing Matched");
+  }
+}
+
+enum Gender { Male, Female, Unknown }
+
+
+
+
+.................................................................................
+.................................................................................
+
+09. Function 
+
+
+import 'dart:vmservice_io';
+
+void main() {
+  // function, here main function is top level function
+  addTwoNumbers(int a, int b) {
+    return a + b;
+  }
+
+  // function call
+  var result = addTwoNumbers(5, 10);
+  print('The sum is: $result'); // Output: The sum is: 15
+
+  // Returning a function
+  exampleFunction() {
+    return (int x, int y) {
+      return x * y;
+    };
+  }
+
+  // Calling the returned function
+  var multiply = exampleFunction();
+  var product = multiply(4, 5);
+  print('The product is: $product'); // Output: The product is: 20
+
+  //higher order function
+  mainFunction() {
+    // Function that takes another function as an argument
+    void higherOrderFunction(int a, int b, Function operation) {
+      var result = operation(a, b);
+      print('The result is: $result');
+    }
+
+    // Passing a
+  }
+}
+
+
+
+...........................................................................
+...........................................................................
+
+
+10.User input 
+
+
+
+import 'dart:io';
+import 'dart:vmservice_io';
+
+void main() {
+  // User input
+
+  print("Enter your name:");
+  // var name = stdin.readLineSync();
+  String? name = stdin.readLineSync();
+  print("Hello, $name!");
+}
+
+
+
+.........................................................................
+.........................................................................
+
+
+
+
+
+
+
+
+
+
+
+
