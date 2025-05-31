@@ -1,28 +1,27 @@
 
-
-
 what is flutter ?
-its a ui toolkit and framwork developed by google published in may 2017. it uses dart programming
-language which released on nov 14 2013.
+Flutter is an UI toolkit and Framwork developed by Google published on May 2017. 
+It uses dart programming language which released on November 2013. It allows developers 
+for building cross-platform applications. Like android,ios, web,macOS,desktop etc. Many well Known 
+companies are using Flutter for  a rich set of tools and features to build beautiful and high 
+performance applications  such as : Google ,Alibaba , eBay ,BMW, Space X etc.
+
 uses of Flutter :
   cross platform, high performance, expensive and customize ui,hot reload,open source community 
 
 
 need dart sdk
-   unzip file then paste into c drive copy bin path and set it into environment variable user path 
+unzip file then paste into c drive copy bin path and set it into environment variable user path 
 check it cmd and search dart -v
-
-
 
 need flutter sdk 
      unzip file to c drive and set environveriable path and search cmd flutter doctor 
 
 
 1.(problem in open new flutter project sdk)
- cmd 
-
+go to the folder and type 
+ cmd  and then 
 flutter create galib12
-
 
 2.Increase the maximum number of file handle
 
@@ -32,7 +31,7 @@ web clint, parameters, file size limit in Bytes,4294967295
 
 or 
 
-cmd then git reset --hard
+cmd then:  git reset --hard
 
 C:\flutter\bin\cache\dart-sdk>git reset --hard
 
@@ -40,11 +39,10 @@ C:\flutter\bin\cache\dart-sdk>git reset --hard
 
 
 
+common uses of dart 
 
 
 01. Datatypes
-
-
 
 
 void main() {
@@ -58,7 +56,7 @@ void main() {
   print(height);
   bool value = true;
   print(value);
-  // List
+  // List e
 
   List myList = [1, 2, 3, 4, 5];
   print(myList);
@@ -387,6 +385,402 @@ void main() {
 
 .........................................................................
 .........................................................................
+
+
+11. Loop 
+
+void main() {
+  List CotactList = ['0123456789', '0987654321', '1234567890', '9876543210'];
+
+  // Print the list using a for loop
+  for (int i = 0; i < CotactList.length; i++) {
+    print(CotactList[i]);
+  }
+
+  // For + break and continu
+  for (var i = 0; i < 10; i++) {
+    if (i == 5) {
+      continue; // Skip the rest of the loop when i is 5
+    }
+    if (i == 8) {
+      break; // Exit the loop when i is 8
+    }
+    print(i);
+  }
+
+  // Print the list using a for-in loop
+  for (var contact in CotactList) {
+    print(contact);
+  }
+
+  // for each loop
+  var myList = [
+    {'Name': 'Name one'},
+    {'Name': 'Name two'},
+    {'Name': 'Name three'},
+  ];
+  myList.forEach((element) {
+    print(element['Name']);
+  });
+  //while loop
+  int i = 0;
+  while (i < CotactList.length) {
+    print(CotactList[i]);
+    i++;
+  }
+
+  // do while loop
+  int j = 0;
+  do {
+    print(CotactList[j]);
+    j++;
+  } while (j < CotactList.length);
+}
+
+...............................................................
+...............................................................
+
+
+12. Null Safety 
+
+
+void main() {
+  // Null safety
+  String? name = null;
+  convertStringIntoint('55');
+}
+
+convertStringIntoint(value) {
+  print(int.parse(value));
+}
+
+
+
+...............................................................
+...............................................................
+
+
+
+13.Exception Handeling
+
+
+
+void main() {
+  // Exception Handeling -try, catch, strack- trace,finally
+  // Formate Exception
+  int result = int.parse('44s');
+  print(result.runtimeType);
+  try {
+    int result = int.parse('44s');
+    print(result.runtimeType);
+  } catch (e) {
+    print(e);
+  }
+  // strack trace or s print korle je library gula break hoiche oita dekhabe
+  try {
+    int result = int.parse('44s');
+    print(result.runtimeType);
+  } catch (e, s) {
+    print(e);
+    print(s);
+  } finally {
+    print('Finally block executed');
+  }
+
+  // Custom Exception
+  try {
+    throw MyException('This is a custom exception');
+  } catch (e) {
+    print(e);
+  }
+}
+
+
+.....................................................................
+......................................................................
+
+14.Asynchronous Programming
+
+
+void main(){
+  // Asynchronous function 
+print('line 1');
+  print('line 2');
+  Future.fetchData() async {
+    
+    
+Future.delayed(Duration(seconds: 3), () => print('line 3'));   
+  }fetchData(); 
+  print('line 4');
+  print('line 5');
+
+}
+
+
+15.Class Object 
+
+
+
+class Example {
+  int age = 10;
+  String name = 'Galib Mahmud';
+  myFunction() {
+    print('Hello, My name is Galib Mahmud ');
+  }
+
+  myFunction2() {
+    print('Opps ');
+  }
+}
+imporrt 'galib.dart';
+void main() {
+  var obj = Example();
+  print(obj.age);
+  print(obj.name);
+  obj.myFunction();
+  obj.myFunction2();
+}
+
+
+.......................................................................
+.....................................................................
+
+
+16.Constractor 
+
+
+void main() {
+  // Dart Constructor
+  var obj = Example('Galib Mahmud');
+}
+
+class Example {
+  String name;
+
+  // Constructor with parameters
+  Example(this.name) {
+    print("This is my deafult constractor ");
+    print(name);
+  }
+}
+
+
+
+.....................................................................
+.....................................................................
+
+17.Static Keyword 
+
+
+void main() {
+  // static keyword
+  // static korle direct class r sathe somporko thake
+
+  print(Galib.name);
+// static na thakle .name diye acess korte partam 
+  Galib.displayInfo();
+}
+
+class Galib {
+  static String name = "Galib";
+  static int age = 25;
+
+  static void displayInfo() {
+    print("Name: $name, Age: $age");
+  }
+}
+
+
+................................................................
+................................................................
+
+
+18. Inheritance 
+
+
+void main() {
+  var son = Son();
+  son.display();
+  // This will call the Son's display method
+
+  son.name();
+}
+
+class Father {
+  int age = 50;
+  name() {
+    print("Father's Name Sazzad Hosain");
+  }
+}
+
+class Son extends Father {
+  int age = 20;
+
+  @override
+  void display() {
+    print("Son's age is $age");
+  }
+}
+
+
+
+...................................................................
+..................................................................
+
+19.Polimorphism
+
+void main() {
+  var son = Son();
+  son.display();
+  // This will call the Son's display method
+
+  son.name();
+}
+
+class Father {
+  int age = 50;
+  name() {
+    print("Father's Name Sazzad Hosain");
+  }
+}
+
+class Son extends Father {
+  int age = 20;
+
+  void display() {
+    print("Son's age is $age");
+  }
+// override method 
+  name() {
+    print('GALIb');
+  }
+}
+
+
+....................................................................
+....................................................................
+
+
+
+
+
+
+
+
+Basic Widget in Flutter:
+
+1. Structural Widgets (Layout)
+Used to organize the UI structure.
+•	Container
+•	Row
+•	Column
+•	Stack
+•	Expanded
+•	SizedBox
+•	Padding
+•	Align
+•	Center
+•	Wrap
+________________________________________
+2. Display Widgets (Visual/Styling)
+Used to show visual content like text, images, icons.
+•	Text
+•	RichText
+•	Image
+•	Icon
+•	FlutterLogo
+•	FadeInImage
+•	CircleAvatar
+________________________________________
+3. Input Widgets (Interactive / Form Fields)
+For user input and interaction.
+•	TextField
+•	TextFormField
+•	Checkbox
+•	Radio
+•	Switch
+•	Slider
+•	DropdownButton
+•	Form
+________________________________________
+4. Button Widgets
+To trigger actions.
+•	ElevatedButton
+•	TextButton
+•	OutlinedButton
+•	IconButton
+•	FloatingActionButton
+•	InkWell (for custom tap detection)
+________________________________________
+5. Layout Control Widgets
+Manage size, space, and alignment.
+•	Flexible
+•	Spacer
+•	AspectRatio
+•	FittedBox
+•	LayoutBuilder
+•	ConstrainedBox
+•	FractionallySizedBox
+________________________________________
+6. Navigation Widgets
+Used for navigation and routing.
+•	Navigator
+•	MaterialPageRoute
+•	PageView
+•	Drawer
+•	BottomNavigationBar
+•	TabBar and TabBarView
+________________________________________
+7. Animation & Motion Widgets
+Used for animations and transitions.
+•	AnimatedContainer
+•	AnimatedOpacity
+•	Hero
+•	AnimatedBuilder
+•	FadeTransition
+•	ScaleTransition
+•	AnimatedSwitcher
+________________________________________
+8. State Management Widgets
+Used for rebuilding UI based on state changes.
+•	StatefulWidget
+•	StatelessWidget
+•	InheritedWidget
+•	Provider, Bloc, Riverpod (via packages)
+________________________________________
+9. Scaffold & App Structure
+Used to build basic app layout.
+•	Scaffold
+•	AppBar
+•	MaterialApp
+•	CupertinoApp
+•	Theme
+________________________________________
+10. Scrollable Widgets
+For scrollable content.
+•	ListView
+•	SingleChildScrollView
+•	GridView
+•	PageView
+•	CustomScrollView
+•	Scrollbar
+________________________________________
+11. Dialog & Popups
+To show alerts or dialogs.
+•	AlertDialog
+•	SimpleDialog
+•	BottomSheet
+•	SnackBar
+•	ModalBottomSheet
+
+
+
+
+
+
+
+
+
 
 
 
