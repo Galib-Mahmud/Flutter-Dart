@@ -1,0 +1,4 @@
+go to the gradlew and right click open in terminal and paste  ./gradlew signingReport
+
+
+

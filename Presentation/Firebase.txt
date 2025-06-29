@@ -1,0 +1,26 @@
+issues flutter deamon is terminatted 
+solve: go to the path   C:\Users\User\AppData\Local\Android\sdk\platform-tools\adb.exe and dlt adb.exc file then run 
+the project 
+
+shrink apk size
+
+flutter build apk --release --split-per-abi
+
+
+another error 
+
+Open Task Manager (Ctrl+Shift+Esc) → End any running qemu-system-*
+
+
+create project on firebase and andriod studio 
+add name on app label gradle file and paset it 
+
+
+
+install package
+
+pubspack.yaml 37 line firebase core 
+
+ws cube Firebase full course 32
+
+masterpandu gmail a firebase console firebase app r sathe connect kora hoiche 

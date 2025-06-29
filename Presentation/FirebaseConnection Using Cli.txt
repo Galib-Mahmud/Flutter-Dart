@@ -1,0 +1,5 @@
+
+1.create a new flutter project on andriod studio and project on firebase console 
+download node js and install it to your computer cmd node -v and npm -v
+
+2.

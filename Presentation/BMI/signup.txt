@@ -1,0 +1,112 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_cli/home.dart';
+import 'package:firebase_cli/signuppage.dart';
+import 'package:firebase_cli/uihelper.dart';
+import 'package:flutter/material.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  login(String email, String password) async {
+    if (email == "" && password == "") {
+      return Uihelper.CustomAlertBox(context, "Enter Required Fields");
+    } else {
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+        });
+      } on FirebaseAuthException catch (ex) {
+        return Uihelper.CustomAlertBox(context, ex.code.toString());
+      }
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: AppBar(
+        title: const Text("Login Page"),
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
+        elevation: 0,
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 30),
+                Card(
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Uihelper.CustomTextField(emailController, "Email", Icons.mail, false),
+                        const SizedBox(height: 16),
+                        Uihelper.CustomTextField(passwordController, "Password", Icons.lock, true),
+                        const SizedBox(height: 24),
+                        Uihelper.CustomButton(() {
+                          login(emailController.text.toString(), passwordController.text.toString());
+                        }, "Login"),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Don't have an account?",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SignUpPage()),
+                        );
+                      },
+                      child: const Text(
+                        "Sign Up",
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
