@@ -1,0 +1,309 @@
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Pritoms-Mac-mini:backend galib$ /Users/galib/project/backend/joe_stumble_backend
+bash: /Users/galib/project/backend/joe_stumble_backend: is a directory
+Pritoms-Mac-mini:backend galib$ cd ~/project/backend/joe_stumble_backend
+Pritoms-Mac-mini:joe_stumble_backend galib$ pwd
+/Users/galib/project/backend/joe_stumble_backend
+Pritoms-Mac-mini:joe_stumble_backend galib$ docker compose up --build
+[+] Running 28/28
+ ✔ redis Pulled                                                                                   27.4s 
+ ✔ db Pulled                                                                                      37.2s 
+[+] Building 53.0s (16/16) FINISHED                                                                     
+ => [internal] load local bake definitions                                                         0.0s
+ => => reading from stdin 561B                                                                     0.0s
+ => [internal] load build definition from Dockerfile                                               0.0s
+ => => transferring dockerfile: 883B                                                               0.0s
+ => [internal] load metadata for docker.io/library/python:3.13-slim                                4.2s
+ => [auth] library/python:pull token for registry-1.docker.io                                      0.0s
+ => [internal] load .dockerignore                                                                  0.0s
+ => => transferring context: 2B                                                                    0.0s
+ => [1/8] FROM docker.io/library/python:3.13-slim@sha256:baf66684c5fcafbda38a54b227ee30ec41e40af1  1.6s
+ => => resolve docker.io/library/python:3.13-slim@sha256:baf66684c5fcafbda38a54b227ee30ec41e40af1  0.0s
+ => => sha256:efaee213b071c0f532ff12d11d84247507efd45c59fe22c0fbc04a999c5e6484 249B / 249B         0.7s
+ => => sha256:70404026428a3bb3231b8f086cb5ed0895ebf5d9fcaf049ec2f83dd9fb3e7071 11.72MB / 11.72MB   1.4s
+ => => sha256:0e3bea94763ea3200fb617eebc798bd63f7dabe9e9f5d070e90b1c67920d8a70 1.27MB / 1.27MB     1.3s
+ => => extracting sha256:0e3bea94763ea3200fb617eebc798bd63f7dabe9e9f5d070e90b1c67920d8a70          0.0s
+ => => extracting sha256:70404026428a3bb3231b8f086cb5ed0895ebf5d9fcaf049ec2f83dd9fb3e7071          0.1s
+ => => extracting sha256:efaee213b071c0f532ff12d11d84247507efd45c59fe22c0fbc04a999c5e6484          0.0s
+ => [internal] load build context                                                                  0.0s
+ => => transferring context: 1.11MB                                                                0.0s
+ => [2/8] WORKDIR /app                                                                             0.6s
+ => [3/8] RUN apt-get update && apt-get install -y     build-essential     libpq-dev     && rm -  16.4s
+ => [4/8] COPY requirements.txt .                                                                  0.0s
+ => [5/8] RUN pip install --no-cache-dir -r requirements.txt                                      21.2s
+ => [6/8] COPY . .                                                                                 0.1s
+ => [7/8] RUN mkdir -p /app/static /app/media /app/staticfiles                                     0.1s
+ => [8/8] RUN python manage.py collectstatic --noinput --clear --verbosity 0 || true               0.7s
+ => exporting to image                                                                             7.9s
+ => => exporting layers                                                                            5.9s
+ => => exporting manifest sha256:64323989970fde43903362edfdac807d259617b30bd050a35b76cac003399442  0.0s
+ => => exporting config sha256:989966051b989299c7e8a8ab1b4207f524681c676caedcdf5316b4440b3470e7    0.0s
+ => => exporting attestation manifest sha256:a5dd762ce6f4b20deb328908828085df49fd3e9412280dcc04f5  0.0s
+ => => exporting manifest list sha256:8f5be2eec879dd6bdb71ba53c19a5913f7d52e279065854a9e07fd41e31  0.0s
+ => => naming to docker.io/library/joe_stumble_backend-web:latest                                  0.0s
+ => => unpacking to docker.io/library/joe_stumble_backend-web:latest                               1.9s
+ => resolving provenance for metadata file                                                         0.0s
+[+] Running 9/9
+ ✔ joe_stumble_backend-web                   Built                                                 0.0s 
+ ✔ Network joe_stumble_backend_default       Created                                               0.0s 
+ ✔ Volume joe_stumble_backend_static_volume  Created                                               0.0s 
+ ✔ Volume joe_stumble_backend_media_volume   Created                                               0.0s 
+ ✔ Volume joe_stumble_backend_postgres_data  Created                                               0.0s 
+ ✔ Volume joe_stumble_backend_redis_data     Created                                               0.0s 
+ ✔ Container stumble_redis                   Created                                               0.9s 
+ ✔ Container stumble_db                      Created                                               0.9s 
+ ✔ Container stumble_web                     Created                                               0.0s 
+Attaching to stumble_db, stumble_redis, stumble_web
+stumble_redis  | 1:C 18 Dec 2025 03:58:06.682 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+stumble_redis  | 1:C 18 Dec 2025 03:58:06.682 * Redis version=7.4.7, bits=64, commit=00000000, modified=0, pid=1, just started
+stumble_redis  | 1:C 18 Dec 2025 03:58:06.682 * Configuration loaded
+stumble_redis  | 1:M 18 Dec 2025 03:58:06.682 * monotonic clock: POSIX clock_gettime
+stumble_redis  | 1:M 18 Dec 2025 03:58:06.683 * Running mode=standalone, port=6379.
+stumble_redis  | 1:M 18 Dec 2025 03:58:06.683 * Server initialized
+stumble_redis  | 1:M 18 Dec 2025 03:58:06.683 * Ready to accept connections tcp
+stumble_db     | The files belonging to this database system will be owned by user "postgres".
+stumble_db     | This user must also own the server process.
+stumble_db     | 
+stumble_db     | The database cluster will be initialized with locale "en_US.utf8".
+stumble_db     | The default database encoding has accordingly been set to "UTF8".
+stumble_db     | The default text search configuration will be set to "english".
+stumble_db     | 
+stumble_db     | Data page checksums are disabled.
+stumble_db     | 
+stumble_db     | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+stumble_db     | creating subdirectories ... ok
+stumble_db     | selecting dynamic shared memory implementation ... posix
+stumble_db     | selecting default "max_connections" ... 100
+stumble_db     | selecting default "shared_buffers" ... 128MB
+stumble_db     | selecting default time zone ... Etc/UTC
+stumble_db     | creating configuration files ... ok
+stumble_db     | running bootstrap script ... ok
+stumble_db     | performing post-bootstrap initialization ... ok
+stumble_db     | initdb: warning: enabling "trust" authentication for local connections
+stumble_db     | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+stumble_db     | syncing data to disk ... ok
+stumble_db     | 
+stumble_db     | 
+stumble_db     | Success. You can now start the database server using:
+stumble_db     | 
+stumble_db     |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+stumble_db     | 
+stumble_db     | waiting for server to start....2025-12-18 03:58:06.987 UTC [47] LOG:  starting PostgreSQL 17.7 (Debian 17.7-3.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+stumble_db     | 2025-12-18 03:58:06.988 UTC [47] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+stumble_db     | 2025-12-18 03:58:06.989 UTC [50] LOG:  database system was shut down at 2025-12-18 03:58:06 UTC
+stumble_db     | 2025-12-18 03:58:06.990 UTC [47] LOG:  database system is ready to accept connections
+stumble_db     |  done
+stumble_db     | server started
+stumble_db     | CREATE DATABASE
+stumble_db     | 
+stumble_db     | 
+stumble_db     | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+stumble_db     | 
+stumble_db     | waiting for server to shut down....2025-12-18 03:58:07.127 UTC [47] LOG:  received fast shutdown request
+stumble_db     | 2025-12-18 03:58:07.127 UTC [47] LOG:  aborting any active transactions
+stumble_db     | 2025-12-18 03:58:07.128 UTC [47] LOG:  background worker "logical replication launcher" (PID 53) exited with exit code 1
+stumble_db     | 2025-12-18 03:58:07.128 UTC [48] LOG:  shutting down
+stumble_db     | 2025-12-18 03:58:07.128 UTC [48] LOG:  checkpoint starting: shutdown immediate
+stumble_db     | 2025-12-18 03:58:07.142 UTC [48] LOG:  checkpoint complete: wrote 925 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.005 s, sync=0.009 s, total=0.015 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4256 kB, estimate=4256 kB; lsn=0/1915950, redo lsn=0/1915950
+stumble_db     | 2025-12-18 03:58:07.143 UTC [47] LOG:  database system is shut down
+stumble_db     |  done
+stumble_db     | server stopped
+stumble_db     | 
+stumble_db     | PostgreSQL init process complete; ready for start up.
+stumble_db     | 
+stumble_db     | 2025-12-18 03:58:07.241 UTC [1] LOG:  starting PostgreSQL 17.7 (Debian 17.7-3.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+stumble_db     | 2025-12-18 03:58:07.241 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+stumble_db     | 2025-12-18 03:58:07.241 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+stumble_db     | 2025-12-18 03:58:07.242 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+stumble_db     | 2025-12-18 03:58:07.243 UTC [63] LOG:  database system was shut down at 2025-12-18 03:58:07 UTC
+stumble_db     | 2025-12-18 03:58:07.244 UTC [1] LOG:  database system is ready to accept connections
+stumble_web    | 🔄 Running migrations...
+stumble_web    | Operations to perform:
+stumble_web    |   Apply all migrations: Chatbot, Core_Business, Reward_System, User_Auth, account, admin, auth, contenttypes, sessions, sites, socialaccount
+stumble_web    | Running migrations:
+stumble_web    |   Applying contenttypes.0001_initial... OK
+stumble_web    |   Applying contenttypes.0002_remove_content_type_name... OK
+stumble_web    |   Applying auth.0001_initial... OK
+stumble_web    |   Applying auth.0002_alter_permission_name_max_length... OK
+stumble_web    |   Applying auth.0003_alter_user_email_max_length... OK
+stumble_web    |   Applying auth.0004_alter_user_username_opts... OK
+stumble_web    |   Applying auth.0005_alter_user_last_login_null... OK
+stumble_web    |   Applying auth.0006_require_contenttypes_0002... OK
+stumble_web    |   Applying auth.0007_alter_validators_add_error_messages... OK
+stumble_web    |   Applying auth.0008_alter_user_username_max_length... OK
+stumble_web    |   Applying auth.0009_alter_user_last_name_max_length... OK
+stumble_web    |   Applying auth.0010_alter_group_name_max_length... OK
+stumble_web    |   Applying auth.0011_update_proxy_permissions... OK
+stumble_web    |   Applying auth.0012_alter_user_first_name_max_length... OK
+stumble_web    |   Applying User_Auth.0001_initial... OK
+stumble_web    |   Applying Chatbot.0001_initial... OK
+stumble_web    |   Applying Chatbot.0002_initial... OK
+stumble_web    |   Applying Chatbot.0003_chatmessage_file_mime_chatmessage_file_size_and_more... OK
+stumble_web    |   Applying Chatbot.0004_supportrequest... OK
+stumble_web    |   Applying Core_Business.0001_initial... OK
+stumble_web    |   Applying Core_Business.0002_alter_progressmilestone_options_and_more... OK
+stumble_web    |   Applying Reward_System.0001_initial... OK
+stumble_web    |   Applying Reward_System.0002_initial... OK
+stumble_web    |   Applying User_Auth.0002_alter_journalentry_options_and_more... OK
+stumble_web    |   Applying User_Auth.0003_onboardingquestion_category... OK
+stumble_web    |   Applying User_Auth.0004_otp_is_verified_otp_verified_at_and_more... OK
+stumble_web    |   Applying account.0001_initial... OK
+stumble_web    |   Applying account.0002_email_max_length... OK
+stumble_web    |   Applying account.0003_alter_emailaddress_create_unique_verified_email... OK
+stumble_web    |   Applying account.0004_alter_emailaddress_drop_unique_email... OK
+stumble_web    |   Applying account.0005_emailaddress_idx_upper_email... OK
+stumble_web    |   Applying account.0006_emailaddress_lower... OK
+stumble_web    |   Applying account.0007_emailaddress_idx_email... OK
+stumble_web    |   Applying account.0008_emailaddress_unique_primary_email_fixup... OK
+stumble_web    |   Applying account.0009_emailaddress_unique_primary_email... OK
+stumble_web    |   Applying admin.0001_initial... OK
+stumble_web    |   Applying admin.0002_logentry_remove_auto_add... OK
+stumble_web    |   Applying admin.0003_logentry_add_action_flag_choices... OK
+stumble_web    |   Applying sessions.0001_initial... OK
+stumble_web    |   Applying sites.0001_initial... OK
+stumble_web    |   Applying sites.0002_alter_domain_unique... OK
+stumble_web    |   Applying socialaccount.0001_initial... OK
+stumble_web    |   Applying socialaccount.0002_token_max_lengths... OK
+stumble_web    |   Applying socialaccount.0003_extra_data_default_dict... OK
+stumble_web    |   Applying socialaccount.0004_app_provider_id_settings... OK
+stumble_web    |   Applying socialaccount.0005_socialtoken_nullable_app... OK
+stumble_web    |   Applying socialaccount.0006_alter_socialaccount_extra_data... OK
+stumble_web    | 📦 Collecting static files...
+stumble_web    | 🤖 Seeding bots...
+stumble_web    | Seeded 6 bots. Total: 6
+stumble_web    | 🏅 Seeding badges...
+stumble_web    | Seeded initial badges (all locked by default).
+stumble_web    | ✅ Checking legacy badges...
+stumble_web    | INFO Legacy badge check complete: 0 badges unlocked
+stumble_web    | Legacy badge check complete
+stumble_web    | 🏘️ Seeding tribes...
+stumble_web    | Created: Fresh Wounds
+stumble_web    | Created: Almost There
+stumble_web    | Created: Next Horizon
+stumble_web    | Created: Afterglow
+stumble_web    | ✓ All tribes seeded successfully
+stumble_web    | ❓ Creating onboarding questions...
+stumble_web    | 🌱 Seeding onboarding questions...
+stumble_web    | 🗑️  Cleared old questions and options
+stumble_web    | ✓ Created Q1: How would you describe how you're feeling today?
+stumble_web    | ✓ Created Q2: What brings you to Stumble right now?
+stumble_web    | ✓ Created Q3: When life feels overwhelming, what helps you most?
+stumble_web    | ✓ Created Q4: When strong emotions show up, you usually?
+stumble_web    | ✓ Created Q5: Which statement feels most true about relationships?
+stumble_web    | ✓ Created Q6: Right now, I need ...
+stumble_web    | ✓ Created Q7: Which best describes your current healing stage?
+stumble_web    | ✓ Created Q8: How do you recharge your energy?
+stumble_web    | ✓ Created Q9: What kind of guidance feels most supportive to you?
+stumble_web    | ✓ Created Q10: When you think about your past relationship or loss, what stands out most?
+stumble_web    | ✓ Created Q11: Which phrase resonates with you most right now?
+stumble_web    | ✓ Created Q12: How much time do you want to dedicate to healing right now?
+stumble_web    | ✓ Created Q13: How do you like to learn or process ideas?
+stumble_web    | ✓ Created Q14: When things get tough, what do you usually need?
+stumble_web    | ✓ Created Q15: Finally, what word best describes what you're looking for here?
+stumble_web    | 
+stumble_web    | ✅ Successfully created 15 questions with 60 total options
+stumble_web    | 
+stumble_web    | 📊 Question Categories:
+stumble_web    |    • GROUNDING & AWARENESS: Q1-Q2
+stumble_web    |    • EMOTIONAL STYLE & PROCESSING: Q3-Q6
+stumble_web    |    • GROWTH & MOTIVATION: Q7-Q9
+stumble_web    |    • MINDSET & REFLECTION: Q10-Q11
+stumble_web    |    • PERSONAL RHYTHM & FEEDBACK: Q12-Q15
+stumble_web    | 🚀 Starting Daphne server on port 9005...
+stumble_web    | INFO Starting server at tcp:port=9005:interface=0.0.0.0
+stumble_web    | INFO HTTP/2 support not enabled (install the http2 and tls Twisted extras)
+stumble_web    | INFO Configuring endpoint tcp:port=9005:interface=0.0.0.0
+stumble_web    | INFO Listening on TCP address 0.0.0.0:9005
+stumble_db     | 2025-12-18 04:03:07.345 UTC [61] LOG:  checkpoint starting: time
+stumble_db     | 2025-12-18 04:03:11.935 UTC [61] LOG:  checkpoint complete: wrote 47 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.582 s, sync=0.004 s, total=4.591 s; sync files=12, longest=0.003 s, average=0.001 s; distance=269 kB, estimate=269 kB; lsn=0/1959190, redo lsn=0/1959138
+Gracefully Stopping... press Ctrl+C again to force
+ Container stumble_web  Stopping
+ Container stumble_web  Stopped
+ Container stumble_redis  Stopping
+ Container stumble_db  Stopping
+stumble_web exited with code 137
+stumble_redis  | 1:signal-handler (1766030618) Received SIGTERM scheduling shutdown...
+stumble_db     | 2025-12-18 04:03:38.851 UTC [1] LOG:  received fast shutdown request
+stumble_db     | 2025-12-18 04:03:38.852 UTC [1] LOG:  aborting any active transactions
+stumble_db     | 2025-12-18 04:03:38.853 UTC [1] LOG:  background worker "logical replication launcher" (PID 66) exited with exit code 1
+stumble_db     | 2025-12-18 04:03:38.853 UTC [61] LOG:  shutting down
+stumble_db     | 2025-12-18 04:03:38.854 UTC [61] LOG:  checkpoint starting: shutdown immediate
+stumble_db     | 2025-12-18 04:03:38.856 UTC [61] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.003 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=243 kB; lsn=0/1959240, redo lsn=0/1959240
+stumble_db     | 2025-12-18 04:03:38.857 UTC [1] LOG:  database system is shut down
+stumble_redis  | 1:M 18 Dec 2025 04:03:38.918 * User requested shutdown...
+stumble_redis  | 1:M 18 Dec 2025 04:03:38.918 * Saving the final RDB snapshot before exiting.
+stumble_redis  | 1:M 18 Dec 2025 04:03:38.919 * DB saved on disk
+stumble_redis  | 1:M 18 Dec 2025 04:03:38.919 # Redis is now ready to exit, bye bye...
+ Container stumble_db  Stopped
+stumble_db exited with code 0
+ Container stumble_redis  Stopped
+stumble_redis exited with code 0
+Pritoms-Mac-mini:joe_stumble_backend galib$ docker compose up --build -d
+[+] Building 3.3s (16/16) FINISHED                                                                                                                                  
+ => [internal] load local bake definitions                                                                                                                     0.0s
+ => => reading from stdin 561B                                                                                                                                 0.0s
+ => [internal] load build definition from Dockerfile                                                                                                           0.0s
+ => => transferring dockerfile: 883B                                                                                                                           0.0s
+ => [internal] load metadata for docker.io/library/python:3.13-slim                                                                                            2.1s
+ => [auth] library/python:pull token for registry-1.docker.io                                                                                                  0.0s
+ => [internal] load .dockerignore                                                                                                                              0.0s
+ => => transferring context: 2B                                                                                                                                0.0s
+ => [1/8] FROM docker.io/library/python:3.13-slim@sha256:baf66684c5fcafbda38a54b227ee30ec41e40af1e4073edee3a7110a417756ba                                      0.0s
+ => => resolve docker.io/library/python:3.13-slim@sha256:baf66684c5fcafbda38a54b227ee30ec41e40af1e4073edee3a7110a417756ba                                      0.0s
+ => [internal] load build context                                                                                                                              0.0s
+ => => transferring context: 4.41MB                                                                                                                            0.0s
+ => CACHED [2/8] WORKDIR /app                                                                                                                                  0.0s
+ => CACHED [3/8] RUN apt-get update && apt-get install -y     build-essential     libpq-dev     && rm -rf /var/lib/apt/lists/*                                 0.0s
+ => CACHED [4/8] COPY requirements.txt .                                                                                                                       0.0s
+ => CACHED [5/8] RUN pip install --no-cache-dir -r requirements.txt                                                                                            0.0s
+ => [6/8] COPY . .                                                                                                                                             0.0s
+ => [7/8] RUN mkdir -p /app/static /app/media /app/staticfiles                                                                                                 0.1s
+ => [8/8] RUN python manage.py collectstatic --noinput --clear --verbosity 0 || true                                                                           0.7s
+ => exporting to image                                                                                                                                         0.2s
+ => => exporting layers                                                                                                                                        0.1s
+ => => exporting manifest sha256:772d8af330ab23c5a88ea32b924d7e61cd1c6fa039c844fd67ce4196ea1084de                                                              0.0s
+ => => exporting config sha256:87901b4e23aea264379dec1031d99c1a6a8848bf446bf20c64e895096494c500                                                                0.0s
+ => => exporting attestation manifest sha256:4f8a6c3465fc2b3a0ddec44d3ff83f762d725ee9eaf10e71198ca6b489ad394c                                                  0.0s
+ => => exporting manifest list sha256:9e26be6fed783696fae2bc40c7c1f5eeed4ac8b50097fd85e9b3a3cc96298666                                                         0.0s
+ => => naming to docker.io/library/joe_stumble_backend-web:latest                                                                                              0.0s
+ => => unpacking to docker.io/library/joe_stumble_backend-web:latest                                                                                           0.0s
+ => resolving provenance for metadata file                                                                                                                     0.0s
+[+] Running 4/4
+ ✔ joe_stumble_backend-web  Built                                                                                                                              0.0s 
+ ✔ Container stumble_web    Started                                                                                                                           10.8s 
+ ✔ Container stumble_redis  Healthy                                                                                                                           10.6s 
+ ✔ Container stumble_db     Healthy                                                                                                                           10.6s 
+Pritoms-Mac-mini:joe_stumble_backend galib$ docker ps -a
+CONTAINER ID   IMAGE                     COMMAND                   CREATED          STATUS                    PORTS                                         NAMES
+13d3cef2a35b   joe_stumble_backend-web   "sh -c '\n  echo '🔄 …"   20 seconds ago   Up 8 seconds              0.0.0.0:9005->9005/tcp, [::]:9005->9005/tcp   stumble_web
+94e6825ae996   postgres:17               "docker-entrypoint.s…"    6 minutes ago    Up 19 seconds (healthy)   0.0.0.0:5433->5432/tcp, [::]:5433->5432/tcp   stumble_db
+2d4505195757   redis:7-alpine            "docker-entrypoint.s…"    6 minutes ago    Up 19 seconds (healthy)   0.0.0.0:6380->6379/tcp, [::]:6380->6379/tcp   stumble_redis
+Pritoms-Mac-mini:joe_stumble_backend galib$ docker exec -it 13d3cef2a35b bas
+OCI runtime exec failed: exec failed: unable to start container process: exec: "bas": executable file not found in $PATH
+Pritoms-Mac-mini:joe_stumble_backend galib$ docker exec -it 13d3cef2a35b bash
+root@13d3cef2a35b:/app# python manage.py makemigrations
+No changes detected
+root@13d3cef2a35b:/app# python manage.py migrate       
+Operations to perform:
+  Apply all migrations: Chatbot, Core_Business, Reward_System, User_Auth, account, admin, auth, contenttypes, sessions, sites, socialaccount
+Running migrations:
+  No migrations to apply.
+root@13d3cef2a35b:/app# python manage.py createsuperuser
+Email: admin@gamil.com
+Password: 
+Password (again): 
+This password is too short. It must contain at least 8 characters.
+Bypass password validation and create user anyway? [y/N]: y
+INFO Profile created for user: admin@gamil.com
+INFO Initialized progress path for admin@gamil.com
+INFO Milestone START completed for admin@gamil.com
+INFO 🤖 Bot notified for START milestone: admin@gamil.com
+INFO ✅ Progress path initialized for admin@gamil.com
+INFO User created successfully: admin@gamil.com
+Superuser created successfully.
+root@13d3cef2a35b:/app# exit
+exit
+Pritoms-Mac-mini:joe_stumble_backend galib$ 
